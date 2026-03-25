@@ -1,0 +1,20 @@
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn--primary {
+  background: #2563eb;
+  color: white;
+}
+.btn--secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+.btn--ghost {
+  background: transparent;
+  color: #2563eb;
+  border: 1px solid #e5e7eb;
+}

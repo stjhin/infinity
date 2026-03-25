@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.storybook/build/
+.cache/
+.DS_Store
+.env
+npm-debug.log
+yarn-error.log
