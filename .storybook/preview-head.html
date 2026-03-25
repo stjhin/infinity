@@ -1,0 +1,41 @@
+<style>
+  /* hide targeted doc table columns (applied via JS by adding .col-hide) */
+  .sbdocs .col-hide {
+    display: none !important;
+  }
+</style>
+<!-- Load Google Fonts in Storybook preview too -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    function hideDocsColumns() {
+      const tables = document.querySelectorAll('.sbdocs table');
+      tables.forEach((table) => {
+        const ths = table.querySelectorAll('thead th');
+        ths.forEach((th, idx) => {
+          const txt = th.textContent && th.textContent.trim().toLowerCase();
+          if (txt === 'description' || txt === 'default') {
+            th.classList.add('col-hide');
+            table.querySelectorAll('tbody tr').forEach((tr) => {
+              const cells = tr.querySelectorAll('td');
+              if (cells[idx]) cells[idx].classList.add('col-hide');
+            });
+          }
+        });
+      });
+    }
+
+    // run on load
+    window.addEventListener('load', () => {
+      hideDocsColumns();
+    });
+
+    // observe changes (Storybook updates the docs dynamically)
+    const obs = new MutationObserver(() => {
+      hideDocsColumns();
+    });
+    obs.observe(document.body, { childList: true, subtree: true });
+  })();
+</script>

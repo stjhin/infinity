@@ -1,0 +1,511 @@
+{
+  "font": {
+    "font-family": {
+      "rubik": {
+        "value": "Rubik"
+      },
+      "noto-sans": {
+        "value": "Noto Sans"
+      }
+    },
+    "font-size": {
+      "10": {
+        "value": "10px"
+      },
+      "12": {
+        "value": "12px"
+      },
+      "14": {
+        "value": "14px"
+      },
+      "16": {
+        "value": "16px"
+      },
+      "18": {
+        "value": "18px"
+      },
+      "21": {
+        "value": "21px"
+      },
+      "24": {
+        "value": "24px"
+      },
+      "28": {
+        "value": "28px"
+      },
+      "36": {
+        "value": "36px"
+      },
+      "48": {
+        "value": "48px"
+      },
+      "60": {
+        "value": "60px"
+      },
+      "96": {
+        "value": "96px"
+      }
+    },
+    "font-weight": {
+      "semibold": {
+        "value": "600px"
+      },
+      "medium": {
+        "value": "500px"
+      },
+      "regular": {
+        "value": "400px"
+      }
+    }
+  },
+  "color": {
+    "asx-mono": {
+      "0": {
+        "value": "#dee4ea"
+      },
+      "100": {
+        "value": "#c7d1db"
+      },
+      "200": {
+        "value": "#b6c2cf"
+      },
+      "300": {
+        "value": "#9fadbc"
+      },
+      "400": {
+        "value": "#8c9bab"
+      },
+      "500": {
+        "value": "#738496"
+      },
+      "600": {
+        "value": "#38414a"
+      },
+      "700": {
+        "value": "#2c333a"
+      },
+      "800": {
+        "value": "#282e33"
+      },
+      "900": {
+        "value": "#22272b"
+      },
+      "1000": {
+        "value": "#1d2125"
+      },
+      "1100": {
+        "value": "#161a1d"
+      },
+      "1200": {
+        "value": "#101214"
+      }
+    },
+    "asx-navy": {
+      "0": {
+        "value": "#ffffff"
+      },
+      "100": {
+        "value": "#f7f8f9"
+      },
+      "200": {
+        "value": "#f1f2f4"
+      },
+      "300": {
+        "value": "#dcdfe4"
+      },
+      "400": {
+        "value": "#b3b9c4"
+      },
+      "500": {
+        "value": "#8590a2"
+      },
+      "600": {
+        "value": "#758195"
+      },
+      "700": {
+        "value": "#626f86"
+      },
+      "800": {
+        "value": "#44546f"
+      },
+      "900": {
+        "value": "#2c3e5d"
+      },
+      "1000": {
+        "value": "#172b4d"
+      },
+      "1100": {
+        "value": "#091e42"
+      }
+    },
+    "asx-purple": {
+      "100": {
+        "value": "#f3f0ff"
+      },
+      "200": {
+        "value": "#dfd8fd"
+      },
+      "300": {
+        "value": "#b8acf6"
+      },
+      "400": {
+        "value": "#9f8fef"
+      },
+      "500": {
+        "value": "#8f7ee7"
+      },
+      "600": {
+        "value": "#8270db"
+      },
+      "700": {
+        "value": "#6e5dc6"
+      },
+      "800": {
+        "value": "#5e4db2"
+      },
+      "900": {
+        "value": "#352c63"
+      },
+      "1000": {
+        "value": "#2b273f"
+      }
+    },
+    "asx-blue": {
+      "100": {
+        "value": "#e9f2ff"
+      },
+      "200": {
+        "value": "#cce0ff"
+      },
+      "300": {
+        "value": "#85b8ff"
+      },
+      "400": {
+        "value": "#579dff"
+      },
+      "500": {
+        "value": "#388bff"
+      },
+      "600": {
+        "value": "#1d7afc"
+      },
+      "700": {
+        "value": "#0c66e4"
+      },
+      "800": {
+        "value": "#0055cc"
+      },
+      "900": {
+        "value": "#09326c"
+      },
+      "1000": {
+        "value": "#1c2b41"
+      }
+    },
+    "asx-green": {
+      "100": {
+        "value": "#dcfff1"
+      },
+      "200": {
+        "value": "#baf3db"
+      },
+      "300": {
+        "value": "#7ee2b8"
+      },
+      "400": {
+        "value": "#4bce97"
+      },
+      "500": {
+        "value": "#2abb7f"
+      },
+      "600": {
+        "value": "#22a06b"
+      },
+      "700": {
+        "value": "#1f845a"
+      },
+      "800": {
+        "value": "#216e4e"
+      },
+      "900": {
+        "value": "#164b35"
+      },
+      "1000": {
+        "value": "#1c3329"
+      }
+    },
+    "asx-teal": {
+      "100": {
+        "value": "#e7f9ff"
+      },
+      "200": {
+        "value": "#c6edfb"
+      },
+      "300": {
+        "value": "#9dd9ee"
+      },
+      "400": {
+        "value": "#6cc3e0"
+      },
+      "500": {
+        "value": "#42b2d7"
+      },
+      "600": {
+        "value": "#2898bd"
+      },
+      "700": {
+        "value": "#227d9b"
+      },
+      "800": {
+        "value": "#206a83"
+      },
+      "900": {
+        "value": "#164555"
+      },
+      "1000": {
+        "value": "#1e3137"
+      }
+    },
+    "asx-yellow": {
+      "100": {
+        "value": "#fff7d6"
+      },
+      "200": {
+        "value": "#f8e6a0"
+      },
+      "300": {
+        "value": "#f5cd47"
+      },
+      "400": {
+        "value": "#e2b203"
+      },
+      "500": {
+        "value": "#cf9f02"
+      },
+      "600": {
+        "value": "#b38600"
+      },
+      "700": {
+        "value": "#946f00"
+      },
+      "800": {
+        "value": "#7f5f01"
+      },
+      "900": {
+        "value": "#533f04"
+      },
+      "1000": {
+        "value": "#332e1b"
+      }
+    },
+    "asx-orange": {
+      "100": {
+        "value": "#fff3eb"
+      },
+      "200": {
+        "value": "#fedec8"
+      },
+      "300": {
+        "value": "#fec195"
+      },
+      "400": {
+        "value": "#fea362"
+      },
+      "500": {
+        "value": "#f38a3f"
+      },
+      "600": {
+        "value": "#e56910"
+      },
+      "700": {
+        "value": "#c25100"
+      },
+      "800": {
+        "value": "#a54800"
+      },
+      "900": {
+        "value": "#702e00"
+      },
+      "1000": {
+        "value": "#38291e"
+      }
+    },
+    "asx-red": {
+      "100": {
+        "value": "#ffeceb"
+      },
+      "200": {
+        "value": "#ffd5d2"
+      },
+      "300": {
+        "value": "#fd9891"
+      },
+      "400": {
+        "value": "#f87168"
+      },
+      "500": {
+        "value": "#f15b50"
+      },
+      "600": {
+        "value": "#e2483d"
+      },
+      "700": {
+        "value": "#c9372c"
+      },
+      "800": {
+        "value": "#ae2e24"
+      },
+      "900": {
+        "value": "#5d1f1a"
+      },
+      "1000": {
+        "value": "#42221f"
+      }
+    }
+  },
+  "global": {
+    "icon": {
+      "white": {
+        "value": "#ffffff"
+      },
+      "black": {
+        "value": "#22272b"
+      },
+      "grey": {
+        "value": "#738496"
+      },
+      "blue": {
+        "value": "#0055cc"
+      },
+      "brand": {
+        "value": "#5e4db2"
+      },
+      "green": {
+        "value": "#216e4e"
+      },
+      "red": {
+        "value": "#c9372c"
+      },
+      "red-dark": {
+        "value": "#5d1f1a"
+      },
+      "yellow": {
+        "value": "#cf9f02"
+      }
+    },
+    "text": {
+      "white": {
+        "value": "#ffffff"
+      },
+      "black": {
+        "value": "#22272b"
+      },
+      "grey": {
+        "value": "#738496"
+      },
+      "brand-light": {
+        "value": "#5e4db2"
+      },
+      "brand-dark": {
+        "value": "#352c63"
+      },
+      "error": {
+        "value": "#ae2e24"
+      },
+      "error-dark": {
+        "value": "#5d1f1a"
+      },
+      "success": {
+        "value": "#216e4e"
+      },
+      "warning": {
+        "value": "#7f5f01"
+      }
+    },
+    "bg": {
+      "white": {
+        "value": "#ffffff"
+      },
+      "gray100": {
+        "value": "#f7f8f9"
+      },
+      "gray200": {
+        "value": "#f1f2f4"
+      },
+      "gray300": {
+        "value": "#dcdfe4"
+      },
+      "gray500": {
+        "value": "#8590a2"
+      },
+      "gray700": {
+        "value": "#626f86"
+      },
+      "gray800": {
+        "value": "#282e33"
+      },
+      "gray900": {
+        "value": "#22272b"
+      },
+      "brand100": {
+        "value": "#f3f0ff"
+      },
+      "brand200": {
+        "value": "#dfd8fd"
+      },
+      "brand300": {
+        "value": "#b8acf6"
+      },
+      "brand400": {
+        "value": "#9f8fef"
+      },
+      "brand700": {
+        "value": "#6e5dc6"
+      },
+      "brand800": {
+        "value": "#5e4db2"
+      },
+      "brand900": {
+        "value": "#352c63"
+      },
+      "blue800": {
+        "value": "#0055cc"
+      },
+      "error100": {
+        "value": "#ffeceb"
+      },
+      "error200": {
+        "value": "#ffd5d2"
+      },
+      "error300": {
+        "value": "#fd9891"
+      },
+      "error700": {
+        "value": "#c9372c"
+      },
+      "error800": {
+        "value": "#ae2e24"
+      },
+      "error900": {
+        "value": "#5d1f1a"
+      }
+    },
+    "border": {
+      "gray100": {
+        "value": "#f7f8f9"
+      },
+      "gray300": {
+        "value": "#dcdfe4"
+      },
+      "gray500": {
+        "value": "#8590a2"
+      },
+      "gray900": {
+        "value": "#22272b"
+      },
+      "brand200": {
+        "value": "#dfd8fd"
+      }
+    }
+  }
+}
