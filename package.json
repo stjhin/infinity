@@ -6,7 +6,8 @@
     "dev": "vite",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate:google-icons": "node scripts/generate-google-icons.mjs"
+    "generate:google-icons": "node scripts/generate-google-icons.mjs",
+    "generate:figma-docs": "node scripts/generate-figma-docs.mjs"
   },
   "dependencies": {
     "react": "^18.2.0",

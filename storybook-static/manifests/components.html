@@ -576,7 +576,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><span class="filter-pill ok" aria-disabled="true">1 components ok</span><a class="filter-pill info" data-k="infos" href="#filter-infos">1/1 info</a><span class="filter-pill ok" aria-disabled="true">1 story ok</span></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><span class="filter-pill ok" aria-disabled="true">1 components ok</span><a class="filter-pill info" data-k="infos" href="#filter-infos">1/1 info</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">7/7 story errors</a></div>
   </div>
 </header>
 <main>
@@ -596,17 +596,17 @@
   class="card 
   no-error 
   has-info 
-  no-story-error
+  has-story-error
   no-doc-error"
   role="listitem"
   aria-label="Button">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Button</h2>
+      <h2><span class="status-dot dot-err"></span> Button</h2>
       <div class="badges">
         <label for="c-0-components-button-props" class="badge ok as-toggle">7 prop types</label>
         <label for="c-0-components-button-info" class="badge info as-toggle">1 info</label>
-        <label for="c-0-components-button-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-0-components-button-stories" class="badge err as-toggle">7/7 story errors</label>
         
       </div>
     </div>
@@ -660,45 +660,135 @@ variant?: any = &#39;primary&#39;</code></pre>
     
         <div class="panel panel-stories">
           
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  164 | }
+  165 |
+&gt; 166 | export const Default = createVariantStory(&#39;Default&#39;, DEFAULT_VARIANT_KEY)
+      |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  167 |
+  168 | export const DefaultTertiary = createVariantStory(&#39;Default / Tertiary&#39;, &#39;default/tertiary&#39;)
+  169 |</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Default Tertiary</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  166 | export const Default = createVariantStory(&#39;Default&#39;, DEFAULT_VARIANT_KEY)
+  167 |
+&gt; 168 | export const DefaultTertiary = createVariantStory(&#39;Default / Tertiary&#39;, &#39;default/tertiary&#39;)
+      |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  169 |
+  170 | export const ConfirmPrimary = createVariantStory(&#39;Confirm / Primary&#39;, &#39;confirm/primary&#39;)
+  171 |</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Confirm Primary</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  168 | export const DefaultTertiary = createVariantStory(&#39;Default / Tertiary&#39;, &#39;default/tertiary&#39;)
+  169 |
+&gt; 170 | export const ConfirmPrimary = createVariantStory(&#39;Confirm / Primary&#39;, &#39;confirm/primary&#39;)
+      |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  171 |
+  172 | export const ConfirmTertiary = createVariantStory(&#39;Confirm / Tertiary&#39;, &#39;confirm/tertiary&#39;)
+  173 |</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Confirm Tertiary</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  170 | export const ConfirmPrimary = createVariantStory(&#39;Confirm / Primary&#39;, &#39;confirm/primary&#39;)
+  171 |
+&gt; 172 | export const ConfirmTertiary = createVariantStory(&#39;Confirm / Tertiary&#39;, &#39;confirm/tertiary&#39;)
+      |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  173 |
+  174 | export const DangerPrimary = createVariantStory(&#39;Danger / Primary&#39;, &#39;danger/primary&#39;)
+  175 |</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Danger Primary</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  172 | export const ConfirmTertiary = createVariantStory(&#39;Confirm / Tertiary&#39;, &#39;confirm/tertiary&#39;)
+  173 |
+&gt; 174 | export const DangerPrimary = createVariantStory(&#39;Danger / Primary&#39;, &#39;danger/primary&#39;)
+      |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  175 |
+  176 | export const DangerTertiary = createVariantStory(&#39;Danger / Tertiary&#39;, &#39;danger/tertiary&#39;)
+  177 |</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Danger Tertiary</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  174 | export const DangerPrimary = createVariantStory(&#39;Danger / Primary&#39;, &#39;danger/primary&#39;)
+  175 |
+&gt; 176 | export const DangerTertiary = createVariantStory(&#39;Danger / Tertiary&#39;, &#39;danger/tertiary&#39;)
+      |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  177 |
+  178 | export const Loading = createVariantStory(&#39;Loading&#39;, &#39;loading&#39;, {
+  179 |   children: &#39;Loading&#39;,</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Loading</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  176 | export const DangerTertiary = createVariantStory(&#39;Danger / Tertiary&#39;, &#39;danger/tertiary&#39;)
+  177 |
+&gt; 178 | export const Loading = createVariantStory(&#39;Loading&#39;, &#39;loading&#39;, {
+      |                        ^
+  179 |   children: &#39;Loading&#39;,
+  180 |   disabled: true,
+  181 | })</code></pre>
+            </div>
           
           
           <div class="note ok">
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Button } from "infinity-design-system";</code></pre>
+                <pre><code>import { Button, Controls, Description, Primary, Stories, Title } from "infinity-design-system";</code></pre>
               </div>
           
           
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Default = (args) =&gt; {
-  const { variant, size, btnType, disabled, children, hasLeadingIcon, leadingIconName, hasTrailingIcon, trailingIconName, className } = args
-  const styleProps = mapStyleToProps(variant)
-
-  const resolvedLeadingIcon = hasLeadingIcon ? ((leadingIconName || &#39;&#39;).trim() || &#39;add&#39;) : undefined
-  const resolvedTrailingIcon = hasTrailingIcon ? ((trailingIconName || &#39;&#39;).trim() || &#39;add&#39;) : undefined
-
-  const props = {
-    ...styleProps,
-    size,
-    disabled: !!disabled,
-    btnType,
-    leadingIcon: resolvedLeadingIcon,
-    trailingIcon: resolvedTrailingIcon,
-    className,
-  }
-
-  // no temporary custom overrides — story uses token-driven styles
-
-  return &lt;Button {...props}&gt;{children}&lt;/Button&gt;
-};</code></pre>
-            </div>
         </div>
     
   </div>

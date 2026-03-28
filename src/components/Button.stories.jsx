@@ -1,7 +1,9 @@
 import React from 'react'
+import { Controls, Description, Primary, Stories, Title } from '@storybook/addon-docs/blocks'
 import Button from './Button'
 import { eventControl, propControl, slotControl } from '../storybook/controlGroups'
 import googleIconNames from '../data/googleIconNames.json'
+import figmaDocs from './Button.figma.generated'
 
 const STYLE_OPTIONS = [
   'default/primary',
@@ -13,14 +15,32 @@ const STYLE_OPTIONS = [
   'loading',
 ]
 const ICON_OPTIONS = ['', ...googleIconNames]
+const DEFAULT_VARIANT_KEY = 'default/primary'
 
 const meta = {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: figmaDocs.componentDescription,
+      },
+      page: () => (
+        <>
+          <Title />
+          <Description of="meta" />
+          <Primary />
+          <Controls />
+          <Stories title="Variants" />
+        </>
+      ),
+    },
+  },
   argTypes: {
     variant: propControl({
       name: 'Variant',
+      description: figmaDocs.argDescriptions?.variant,
       control: { type: 'select' },
       options: STYLE_OPTIONS,
       labels: {
@@ -35,32 +55,34 @@ const meta = {
     }),
     btnType: propControl({
       name: 'Type',
+      description: figmaDocs.argDescriptions?.btnType,
       control: { type: 'select' },
       options: ['text', 'dropdown', 'icon-only', 'icon-only-dropdown'],
     }),
     size: propControl({
       name: 'Size',
+      description: figmaDocs.argDescriptions?.size,
       control: { type: 'radio' },
       options: ['small', 'medium'],
     }),
-    disabled: propControl({ name: 'Disabled', control: { type: 'boolean' } }),
-    className: propControl({ name: 'Class name', control: { type: 'text' } }),
-    children: slotControl({ name: 'Label', control: { type: 'text' } }),
-    hasLeadingIcon: slotControl({ name: 'Has leading icon', control: { type: 'boolean' } }),
+    disabled: propControl({ name: 'Disabled', description: figmaDocs.argDescriptions?.disabled, control: { type: 'boolean' } }),
+    className: propControl({ name: 'Class name', description: figmaDocs.argDescriptions?.className, control: { type: 'text' } }),
+    children: slotControl({ name: 'Label', description: figmaDocs.argDescriptions?.children, control: { type: 'text' } }),
+    hasLeadingIcon: slotControl({ name: 'Has leading icon', description: figmaDocs.argDescriptions?.hasLeadingIcon, control: { type: 'boolean' } }),
     leadingIconName: slotControl({
       name: 'Leading icon',
+      description: figmaDocs.argDescriptions?.leadingIconName,
       control: { type: 'select' },
       options: ICON_OPTIONS,
       labels: { '': 'None' },
-      description: 'Google Material Symbol name from fonts.google.com/icons',
     }),
-    hasTrailingIcon: slotControl({ name: 'Has trailing icon', control: { type: 'boolean' } }),
+    hasTrailingIcon: slotControl({ name: 'Has trailing icon', description: figmaDocs.argDescriptions?.hasTrailingIcon, control: { type: 'boolean' } }),
     trailingIconName: slotControl({
       name: 'Trailing icon',
+      description: figmaDocs.argDescriptions?.trailingIconName,
       control: { type: 'select' },
       options: ICON_OPTIONS,
       labels: { '': 'None' },
-      description: 'Google Material Symbol name from fonts.google.com/icons',
     }),
     leadingIcon: slotControl({ control: false }),
     trailingIcon: slotControl({ control: false }),
@@ -105,19 +127,55 @@ const renderButton = (args) => {
   return <Button {...props}>{children}</Button>
 }
 
-export const Default = {
-  name: 'Default',
-  render: renderButton,
-  args: {
-    variant: 'default/primary',
-    btnType: 'text',
-    size: 'medium',
-    disabled: false,
-    children: "Button",
-    hasLeadingIcon: false,
-    leadingIconName: '',
-    hasTrailingIcon: false,
-    trailingIconName: '',
-    className: '',
-  },
+const BASE_ARGS = {
+  btnType: 'text',
+  size: 'medium',
+  disabled: false,
+  children: 'Button',
+  hasLeadingIcon: false,
+  leadingIconName: '',
+  hasTrailingIcon: false,
+  trailingIconName: '',
+  className: '',
 }
+
+const getVariantStoryDescription = (variantKey) => figmaDocs.variantDescriptions?.[variantKey]
+
+const createVariantStory = (name, variantKey, args = {}) => {
+  const description = getVariantStoryDescription(variantKey)
+  return {
+    name,
+    render: renderButton,
+    parameters: description
+      ? {
+          docs: {
+            description: {
+              story: description,
+            },
+          },
+        }
+      : undefined,
+    args: {
+      ...BASE_ARGS,
+      variant: variantKey,
+      ...args,
+    },
+  }
+}
+
+export const Default = createVariantStory('Default', DEFAULT_VARIANT_KEY)
+
+export const DefaultTertiary = createVariantStory('Default / Tertiary', 'default/tertiary')
+
+export const ConfirmPrimary = createVariantStory('Confirm / Primary', 'confirm/primary')
+
+export const ConfirmTertiary = createVariantStory('Confirm / Tertiary', 'confirm/tertiary')
+
+export const DangerPrimary = createVariantStory('Danger / Primary', 'danger/primary')
+
+export const DangerTertiary = createVariantStory('Danger / Tertiary', 'danger/tertiary')
+
+export const Loading = createVariantStory('Loading', 'loading', {
+  children: 'Loading',
+  disabled: true,
+})

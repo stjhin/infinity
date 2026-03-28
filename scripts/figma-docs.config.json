@@ -1,0 +1,8 @@
+{
+  "targets": [],
+  "exampleTarget": {
+    "fileKey": "YOUR_FIGMA_FILE_KEY",
+    "nodeId": "234:567",
+    "outMetaPath": "src/components/Badge.figma.generated.js"
+  }
+}

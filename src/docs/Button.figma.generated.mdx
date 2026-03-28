@@ -1,0 +1,34 @@
+import { Meta, Title, Description, Story, Controls, Subtitle } from '@storybook/addon-docs/blocks'
+import * as ButtonStories from '../components/Button.stories'
+import figmaDocs from '../components/Button.figma.generated'
+
+<Meta title="Components/Button/Figma Docs" />
+
+<Title />
+<Subtitle>{figmaDocs.generatedAt ? `Synced from Figma (${figmaDocs.generatedAt})` : 'Not yet synced from Figma'}</Subtitle>
+
+<Description>{figmaDocs.componentDescription}</Description>
+
+{figmaDocs.figmaUrl ? (
+  <p>
+    <a href={figmaDocs.figmaUrl} target="_blank" rel="noreferrer">Open source node in Figma</a>
+  </p>
+) : null}
+
+{figmaDocs.figmaProperties?.length ? (
+  <>
+    <h2>Figma properties</h2>
+    <ul>
+      {figmaDocs.figmaProperties.map((prop) => (
+        <li key={prop.name}>
+          <strong>{prop.name}</strong>
+          {prop.defaultValue != null ? ` (default: ${String(prop.defaultValue)})` : ''}
+          {prop.description ? ` — ${prop.description}` : ''}
+        </li>
+      ))}
+    </ul>
+  </>
+) : null}
+
+<Story of={ButtonStories.Default} />
+<Controls of={ButtonStories.Default} />
