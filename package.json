@@ -6,6 +6,7 @@
     "dev": "vite",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build:pages": "storybook build --output-dir docs",
     "generate:google-icons": "node scripts/generate-google-icons.mjs",
     "generate:figma-docs": "node scripts/generate-figma-docs.mjs"
   },

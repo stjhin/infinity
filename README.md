@@ -14,6 +14,9 @@ npm run storybook
 # build static Storybook site
 npm run build-storybook
 
+# build Storybook for GitHub Pages (outputs to docs/)
+npm run build:pages
+
 # refresh Google icon names used by Button controls
 npm run generate:google-icons
 
@@ -76,3 +79,29 @@ Notes:
 
 - This project uses React + Storybook (Vite builder). If you want the Storybook CLI to add plugins and recommendations automatically, run `npx storybook@latest init` after installing dependencies.
 - Example component: `src/components/Button.jsx` with stories in `src/components/Button.stories.jsx`.
+
+## GitHub Pages publish (master branch)
+
+This repo includes a workflow that deploys Storybook to GitHub Pages on every push to `master`.
+
+In GitHub repository settings → Pages, set:
+
+- Source: **GitHub Actions**
+
+If you prefer manual branch-based publishing instead of Actions, use the `docs/` folder on `master`.
+
+Manual flow:
+
+1. Build docs output:
+
+```powershell
+npm run build:pages
+```
+
+2. Commit and push the generated `docs/` folder.
+3. In GitHub repository settings → Pages:
+	- Source: `Deploy from a branch`
+	- Branch: `master`
+	- Folder: `/docs`
+
+Using `/root` on `master` will serve your app source `index.html` (which points to `/src/main.jsx`) instead of built Storybook assets, resulting in a blank page.
