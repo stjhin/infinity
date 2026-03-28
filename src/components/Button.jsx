@@ -1,9 +1,9 @@
 import React from 'react'
 import './Button.css'
 import variables from '../variables.json'
+import googleIconNames from '../data/googleIconNames.json'
 
-const IMG_ICON = 'http://localhost:3845/assets/4c41b1fe2598c2502a70f753f273a8ff32c806f5.svg'
-const IMG_SPINNER = 'http://localhost:3845/assets/36997f8f3bf435d2073fe6daebe6ddd04fe8d2e2.svg'
+const GOOGLE_ICON_SET = new Set(googleIconNames)
 
 // small helper to safely read token values
 const token = (path, fallback) => {
@@ -26,8 +26,20 @@ export default function Button({
   className = '',
   ...rest
 }) {
-  // determine appearance tokens based on variant
-  const vars = variables
+  const renderIcon = (icon) => {
+    // React nodes are allowed for advanced/custom usage.
+    if (React.isValidElement(icon)) return icon
+
+    // String icons are restricted to Google Material Symbols icon names.
+    if (typeof icon === 'string') {
+      const iconName = icon.trim()
+      if (GOOGLE_ICON_SET.has(iconName)) {
+  return <span className="material-symbols-rounded">{iconName}</span>
+      }
+    }
+
+    return null
+  }
 
   // mapping of logical variant -> token refs
   const appearance = (() => {
@@ -38,8 +50,9 @@ export default function Button({
           '--btn-text': token('global.text.black', '#22272b'),
           '--btn-border': 'transparent',
           '--btn-active-border': 'transparent',
-          '--btn-hover-bg': token('global.bg.brand100', '#f3f0ff'),
-          '--btn-active-bg': token('global.bg.brand200', '#dfd8fd'),
+          // default/tertiary uses the neutral gray scale (not brand purple)
+          '--btn-hover-bg': token('global.bg.gray100', '#f7f8f9'),
+          '--btn-active-bg': token('global.bg.gray200', '#f1f2f4'),
           '--btn-focus-ring': '0 0 0 3px rgba(130,112,219,0.24), 0 0 0 1px var(--bg-white) inset',
         }
       case 'confirm-primary':
@@ -86,7 +99,8 @@ export default function Button({
       case 'loading':
         return {
           '--btn-bg': token('global.bg.gray100', '#f7f8f9'),
-          '--btn-text': token('global.text.grey', '#738496'),
+          // keep loading state readable for accessibility contrast
+          '--btn-text': token('color.asx-mono.600', '#38414a'),
           '--btn-border': token('global.bg.gray300', '#dcdfe4'),
           '--btn-hover-bg': token('global.bg.gray100', '#f7f8f9'),
           '--btn-active-bg': token('global.bg.gray100', '#f7f8f9'),
@@ -125,6 +139,8 @@ export default function Button({
   // make a shallow copy of rest without style so we don't pass it twice
   const { style: _s, ...restProps } = rest || {}
   const finalStyle = { ...inlineStyle, ...extraStyle }
+  const isExpanded = restProps['aria-expanded'] === true || restProps['aria-expanded'] === 'true'
+  const dropdownCaretIcon = isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
 
   return (
     <button
@@ -133,18 +149,19 @@ export default function Button({
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
       aria-disabled={disabled}
+      aria-busy={variant === 'loading' ? true : undefined}
       style={finalStyle}
       {...restProps}
     >
       {variant === 'loading' && (
         <span className="btn__spinner" aria-hidden>
-          <img src={IMG_SPINNER} alt="" />
+          <span className="btn__spinner-glyph" />
         </span>
       )}
 
       {leadingIcon && variant !== 'loading' && (
         <span className="btn__icon" aria-hidden>
-          {typeof leadingIcon === 'string' ? <img src={leadingIcon} alt="" /> : leadingIcon}
+          {renderIcon(leadingIcon)}
         </span>
       )}
 
@@ -155,14 +172,14 @@ export default function Button({
 
       {trailingIcon && variant !== 'loading' && (
         <span className="btn__icon btn__icon--end" aria-hidden>
-          {typeof trailingIcon === 'string' ? <img src={trailingIcon} alt="" /> : trailingIcon}
+          {renderIcon(trailingIcon)}
         </span>
       )}
 
       {/* dropdown caret for dropdown types */}
       {(btnType === 'dropdown' || btnType === 'icon-only-dropdown') && (
         <span className="btn__caret" aria-hidden>
-          ▾
+          <span className="material-symbols-rounded">{dropdownCaretIcon}</span>
         </span>
       )}
     </button>

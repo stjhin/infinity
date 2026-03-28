@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './Button'
 import { eventControl, propControl, slotControl } from '../storybook/controlGroups'
+import googleIconNames from '../data/googleIconNames.json'
 
 const STYLE_OPTIONS = [
   'default/primary',
@@ -11,13 +12,7 @@ const STYLE_OPTIONS = [
   'danger/tertiary',
   'loading',
 ]
-// Fallback inline SVG icon (guaranteed to render even if external asset server is down)
-const DEFAULT_ICON = (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
-    <path d="M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-)
+const ICON_OPTIONS = ['', ...googleIconNames]
 
 const meta = {
   title: 'Components/Button',
@@ -52,9 +47,21 @@ const meta = {
     className: propControl({ name: 'Class name', control: { type: 'text' } }),
     children: slotControl({ name: 'Label', control: { type: 'text' } }),
     hasLeadingIcon: slotControl({ name: 'Has leading icon', control: { type: 'boolean' } }),
-    leadingIconUrl: slotControl({ name: 'Leading icon URL', control: { type: 'text' } }),
+    leadingIconName: slotControl({
+      name: 'Leading icon',
+      control: { type: 'select' },
+      options: ICON_OPTIONS,
+      labels: { '': 'None' },
+      description: 'Google Material Symbol name from fonts.google.com/icons',
+    }),
     hasTrailingIcon: slotControl({ name: 'Has trailing icon', control: { type: 'boolean' } }),
-    trailingIconUrl: slotControl({ name: 'Trailing icon URL', control: { type: 'text' } }),
+    trailingIconName: slotControl({
+      name: 'Trailing icon',
+      control: { type: 'select' },
+      options: ICON_OPTIONS,
+      labels: { '': 'None' },
+      description: 'Google Material Symbol name from fonts.google.com/icons',
+    }),
     leadingIcon: slotControl({ control: false }),
     trailingIcon: slotControl({ control: false }),
     onClick: eventControl({ control: false }),
@@ -77,11 +84,11 @@ const mapStyleToProps = (style) => {
 }
 
 const renderButton = (args) => {
-  const { variant, size, btnType, disabled, children, hasLeadingIcon, leadingIconUrl, hasTrailingIcon, trailingIconUrl, className } = args
+  const { variant, size, btnType, disabled, children, hasLeadingIcon, leadingIconName, hasTrailingIcon, trailingIconName, className } = args
   const styleProps = mapStyleToProps(variant)
 
-  const resolvedLeadingIcon = hasLeadingIcon ? ((leadingIconUrl || '').trim() ? leadingIconUrl.trim() : DEFAULT_ICON) : undefined
-  const resolvedTrailingIcon = hasTrailingIcon ? ((trailingIconUrl || '').trim() ? trailingIconUrl.trim() : DEFAULT_ICON) : undefined
+  const resolvedLeadingIcon = hasLeadingIcon ? ((leadingIconName || '').trim() || 'add') : undefined
+  const resolvedTrailingIcon = hasTrailingIcon ? ((trailingIconName || '').trim() || 'add') : undefined
 
   const props = {
     ...styleProps,
@@ -106,11 +113,11 @@ export const Default = {
     btnType: 'text',
     size: 'medium',
     disabled: false,
-    children: 'Primary',
+    children: "Button",
     hasLeadingIcon: false,
-    leadingIconUrl: '',
+    leadingIconName: '',
     hasTrailingIcon: false,
-    trailingIconUrl: '',
+    trailingIconName: '',
     className: '',
   },
 }

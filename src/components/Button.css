@@ -28,8 +28,36 @@
 .btn__icon img, .btn__spinner img{ width: 16px; height: 16px; display:block }
 .btn__icon{ display:inline-flex; align-items:center; justify-content:center }
 .btn__spinner{ display:inline-flex; align-items:center; justify-content:center }
+.btn__spinner-glyph{
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  box-sizing: border-box;
+  animation: btn-spinner-rotate 0.75s linear infinite;
+}
 
-.btn__caret{ margin-left: 6px; font-size: 12px; line-height:1 }
+/* Google Material Symbols icon rendering */
+.btn__icon .material-symbols-rounded {
+  font-size: 16px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.btn__caret{
+  margin-left: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.btn__caret .material-symbols-rounded {
+  font-size: 18px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+}
 
 /* sizes */
 .btn--small{ min-height: 24px; max-height: 24px; padding: 4px 10px; font-size: 12px }
@@ -57,7 +85,11 @@
 }
 
 /* loading */
-.btn.is-loading{ background: var(--bg-gray100); border-color: var(--bg-gray300); color: var(--text-grey); }
+.btn.is-loading{ background: var(--btn-bg, var(--bg-gray100)); border-color: var(--btn-border, var(--bg-gray300)); color: var(--btn-text, var(--text-grey)); }
+
+@keyframes btn-spinner-rotate {
+  to { transform: rotate(360deg); }
+}
 
 /* small visual tweak for icon-only */
 .btn--icon-only{ padding-left:8px; padding-right:8px; width:32px; }

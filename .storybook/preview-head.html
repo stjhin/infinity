@@ -7,35 +7,63 @@
 <!-- Load Google Fonts in Storybook preview too -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 <script>
   (function () {
-    function hideDocsColumns() {
-      const tables = document.querySelectorAll('.sbdocs table');
-      tables.forEach((table) => {
-        const ths = table.querySelectorAll('thead th');
-        ths.forEach((th, idx) => {
-          const txt = th.textContent && th.textContent.trim().toLowerCase();
-          if (txt === 'description' || txt === 'default') {
-            th.classList.add('col-hide');
-            table.querySelectorAll('tbody tr').forEach((tr) => {
-              const cells = tr.querySelectorAll('td');
-              if (cells[idx]) cells[idx].classList.add('col-hide');
+    try {
+      function hideDocsColumns() {
+        try {
+          const tables = document.querySelectorAll('.sbdocs table');
+          tables.forEach((table) => {
+            const ths = table.querySelectorAll('thead th');
+            ths.forEach((th, idx) => {
+              const txt = th.textContent && th.textContent.trim().toLowerCase();
+              if (txt === 'description' || txt === 'default') {
+                th.classList.add('col-hide');
+                table.querySelectorAll('tbody tr').forEach((tr) => {
+                  const cells = tr.querySelectorAll('td');
+                  if (cells[idx]) cells[idx].classList.add('col-hide');
+                });
+              }
             });
-          }
-        });
+          });
+        } catch (innerErr) {
+          // Non-fatal—log and continue. Guards against unexpected DOM shapes in Storybook manager.
+          // eslint-disable-next-line no-console
+          console.warn('hideDocsColumns failed:', innerErr && innerErr.message ? innerErr.message : innerErr);
+        }
+      }
+
+      // run on load
+      window.addEventListener('load', () => {
+        try {
+          hideDocsColumns();
+        } catch (e) {
+          // swallow
+          // eslint-disable-next-line no-console
+          console.warn('hideDocsColumns on load error', e && e.message ? e.message : e);
+        }
       });
+
+      // observe changes (Storybook updates the docs dynamically)
+      if (typeof MutationObserver !== 'undefined' && document && document.body && document.body.nodeType === 1) {
+        const obs = new MutationObserver(() => {
+          try { hideDocsColumns(); } catch (e) { /* swallow */ }
+        });
+        try {
+          obs.observe(document.body, { childList: true, subtree: true });
+        } catch (observeErr) {
+          // eslint-disable-next-line no-console
+          console.warn('Could not observe document.body:', observeErr && observeErr.message ? observeErr.message : observeErr);
+        }
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn('preview-head: MutationObserver not initialized - document.body not ready or invalid');
+      }
+    } catch (err) {
+      // Top-level safety: if anything fails, do not break Storybook manager scripts.
+      // eslint-disable-next-line no-console
+      console.warn('preview-head script suppressed:', err && err.message ? err.message : err);
     }
-
-    // run on load
-    window.addEventListener('load', () => {
-      hideDocsColumns();
-    });
-
-    // observe changes (Storybook updates the docs dynamically)
-    const obs = new MutationObserver(() => {
-      hideDocsColumns();
-    });
-    obs.observe(document.body, { childList: true, subtree: true });
   })();
 </script>

@@ -13,7 +13,22 @@ npm run storybook
 
 # build static Storybook site
 npm run build-storybook
+
+# refresh Google icon names used by Button controls
+npm run generate:google-icons
 ```
+
+## Google Icons source (Material Symbols)
+
+- Icon picker options are generated from `https://fonts.google.com/metadata/icons`.
+- Generated file: `src/data/googleIconNames.json`.
+- If Google adds/removes icons, refresh the local list with:
+
+```powershell
+npm run generate:google-icons
+```
+
+- Commit the updated `src/data/googleIconNames.json` so Storybook controls stay in sync across machines/CI.
 
 Notes:
 - This project uses React + Storybook (Vite builder). If you want the Storybook CLI to add plugins and recommendations automatically, run `npx storybook@latest init` after installing dependencies.
