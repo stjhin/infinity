@@ -6,7 +6,7 @@
   --btn-padding-y: 8px;
   --btn-padding-x: 12px;
   --btn-radius: 8px;
-  --font-size: 14px;
+  --btn-font-size: 14px;
   --btn-border: var(--text-black);
   --btn-bg: var(--bg-white);
   --btn-text: var(--text-black);
@@ -26,7 +26,7 @@
   border: 1px solid var(--btn-border, var(--border-dark));
   background: var(--btn-bg, var(--bg-white));
   cursor: pointer;
-  font-size: var(--font-size);
+  font-size: var(--btn-font-size);
   font-family: var(--font-family-base, var(--font-family-noto-sans, "Noto Sans")), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   line-height: 1;
   color: var(--btn-text, var(--text-black));

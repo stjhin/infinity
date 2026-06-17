@@ -14,8 +14,8 @@
 *.html   text eol=lf
 *.md     text eol=lf
 
-# Generated Storybook assets — treat as binary/text-auto to avoid LF/CRLF churn
-docs/** text=auto
+# Generated Storybook assets — no line-ending conversion
+docs/** -text
 
 # Binary files
 *.woff2  binary

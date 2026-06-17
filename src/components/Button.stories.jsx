@@ -1,5 +1,4 @@
 import React from 'react'
-import { Controls, Description, Primary, Stories, Title } from '@storybook/addon-docs/blocks'
 import Button from './Button'
 import { eventControl, propControl, slotControl } from '../storybook/controlGroups'
 import googleIconNames from '../data/googleIconNames.json'
@@ -26,15 +25,6 @@ const meta = {
       description: {
         component: figmaDocs.componentDescription,
       },
-      page: () => (
-        <>
-          <Title />
-          <Description of="meta" />
-          <Primary />
-          <Controls />
-          <Stories title="Variants" />
-        </>
-      ),
     },
   },
   argTypes: {

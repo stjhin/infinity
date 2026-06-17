@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Controls, Description, Primary, Stories, Title } from '@storybook/addon-docs/blocks'
 import Menu from './Menu'
 import { eventControl, propControl, slotControl } from '../storybook/controlGroups'
 import figmaDocs from './Menu.figma.generated'
@@ -13,15 +12,6 @@ const meta = {
       description: {
         component: figmaDocs.componentDescription,
       },
-      page: () => (
-        <>
-          <Title />
-          <Description of="meta" />
-          <Primary />
-          <Controls />
-          <Stories title="Variants" />
-        </>
-      ),
     },
   },
   argTypes: {

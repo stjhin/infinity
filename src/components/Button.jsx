@@ -124,6 +124,14 @@ export default function Button({
     className,
   ]
 
+  // Resolve icon color: explicit prop > inherit from button text
+  const resolvedIconColor = iconColorProp != null ? iconColor(iconColorProp) : 'inherit'
+
+  // Merge icon color into inlineStyle so CSS custom property is available
+  const iconStyleOverrides = resolvedIconColor !== 'inherit'
+    ? { '--btn-icon-color': resolvedIconColor }
+    : {}
+
   const inlineStyle = {
     ...appearance,
   }
@@ -134,14 +142,6 @@ export default function Button({
   const finalStyle = { ...inlineStyle, ...iconStyleOverrides, ...extraStyle }
   const isExpanded = restProps['aria-expanded'] === true || restProps['aria-expanded'] === 'true'
   const dropdownCaretIcon = isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
-
-  // Resolve icon color: explicit prop > inherit from button text
-  const resolvedIconColor = iconColorProp != null ? iconColor(iconColorProp) : 'inherit'
-
-  // Merge icon color into inlineStyle so CSS custom property is available
-  const iconStyleOverrides = resolvedIconColor !== 'inherit'
-    ? { '--btn-icon-color': resolvedIconColor }
-    : {}
 
   return (
     <button
