@@ -1,5 +1,7 @@
 node_modules/
 dist/
+storybook-static/
+.codewhale/
 .storybook/build/
 .cache/
 .DS_Store

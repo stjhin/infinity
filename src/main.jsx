@@ -2,6 +2,8 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
+import './styles/colors.css'
+import './styles/typography.css'
 import applyTokens from './setupTokens'
 
 // ensure tokens are applied at app startup

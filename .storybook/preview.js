@@ -1,4 +1,6 @@
 import '../src/index.css';
+import '../src/styles/colors.css';
+import '../src/styles/typography.css';
 // Import runtime token injector so Storybook has the same CSS variables as the app
 import '../src/setupTokens'
 

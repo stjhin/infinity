@@ -1,0 +1,25 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Dotfiles
+.gitattributes text eol=lf
+.gitignore     text eol=lf
+
+# Source files — store as LF in repo
+*.js     text eol=lf
+*.jsx    text eol=lf
+*.mjs    text eol=lf
+*.css    text eol=lf
+*.json   text eol=lf
+*.html   text eol=lf
+*.md     text eol=lf
+
+# Generated Storybook assets — always LF (produced by Vite/Linux CI)
+docs/assets/**   text eol=lf
+docs/sb-addons/** text eol=lf
+docs/sb-manager/** text eol=lf
+
+# Binary files
+*.woff2  binary
+*.png    binary
+*.svg    binary

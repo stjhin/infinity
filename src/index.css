@@ -1,11 +1,8 @@
 /* ============================================================
    Infinity Design System — main stylesheet
-   Imports global token files and sets base document styles.
-   Component tokens live in each component's CSS file.
+   Sets base document styles.
+   Colour and typography tokens are imported via JS.
    ============================================================ */
-
-@import './styles/colors.css';
-@import './styles/typography.css';
 
 /* ── Base document styles ── */
 body {
