@@ -1,0 +1,91 @@
+/* Menu component styles.
+   Colour and typography tokens are in src/styles/.
+   Variant overrides are applied via inline style from Menu.jsx. */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: var(--menu-width, 216px);
+  background: var(--bg-white);
+  border-radius: var(--form-field-radius, 8px);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12), 0px 0px 0px 1px var(--color-mono-300, #9fadbc);
+  overflow: hidden;
+  font-family: var(--font-family-base, var(--font-family-noto-sans, "Noto Sans")), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Individual menu item row */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--menu-item-padding-y, 16px) var(--menu-item-padding-x, 16px);
+  min-height: 72px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: var(--menu-item-bg, #ffffff);
+  border: var(--menu-item-border-width, 0px) solid var(--menu-item-border-color, transparent);
+  color: var(--menu-item-text-color, #101214);
+  transition: background 0.12s ease, border-color 0.12s ease;
+  outline: none;
+  user-select: none;
+}
+
+/* Hover state (simulated class) */
+.menu-item--hover {
+  background: var(--menu-item-bg);
+}
+
+/* Selected state */
+.menu-item--selected {
+  background: var(--menu-item-bg);
+}
+
+/* Focus state (simulated class) */
+.menu-item--focus {
+  /* border handled via inline style */
+}
+
+/* Checkbox slot */
+.menu-item__checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.menu-item__checkbox svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Text area (label + subtitle) */
+.menu-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.menu-item__label {
+  font-size: var(--menu-item-label-font-size, 16px);
+  font-weight: var(--menu-item-label-font-weight, 500);
+  line-height: 1.375;
+  color: var(--menu-item-text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu-item__subtitle {
+  font-size: var(--menu-item-subtitle-font-size, 12px);
+  font-weight: var(--menu-item-subtitle-font-weight, 400);
+  line-height: 1.167;
+  color: var(--color-mono-500, #738496);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

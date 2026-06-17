@@ -1,18 +1,10 @@
 import React from 'react'
 import './Button.css'
-import variables from '../variables.json'
 import googleIconNames from '../data/googleIconNames.json'
+import { token, iconColor } from '../utils'
 
 const GOOGLE_ICON_SET = new Set(googleIconNames)
 
-// small helper to safely read token values
-const token = (path, fallback) => {
-  try {
-    return path.split('.').reduce((o, k) => (o ? o[k] : undefined), variables) .value || fallback
-  } catch (e) {
-    return fallback
-  }
-}
 
 export default function Button({
   children,
@@ -21,6 +13,7 @@ export default function Button({
   disabled = false,
   leadingIcon = null,
   trailingIcon = null,
+  iconColor: iconColorProp,
   btnType = 'text', // text | dropdown | icon-only | icon-only-dropdown
   onClick,
   className = '',
@@ -138,9 +131,17 @@ export default function Button({
   const extraStyle = (rest && rest.style) || {}
   // make a shallow copy of rest without style so we don't pass it twice
   const { style: _s, ...restProps } = rest || {}
-  const finalStyle = { ...inlineStyle, ...extraStyle }
+  const finalStyle = { ...inlineStyle, ...iconStyleOverrides, ...extraStyle }
   const isExpanded = restProps['aria-expanded'] === true || restProps['aria-expanded'] === 'true'
   const dropdownCaretIcon = isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
+
+  // Resolve icon color: explicit prop > inherit from button text
+  const resolvedIconColor = iconColorProp != null ? iconColor(iconColorProp) : 'inherit'
+
+  // Merge icon color into inlineStyle so CSS custom property is available
+  const iconStyleOverrides = resolvedIconColor !== 'inherit'
+    ? { '--btn-icon-color': resolvedIconColor }
+    : {}
 
   return (
     <button
@@ -160,7 +161,7 @@ export default function Button({
       )}
 
       {leadingIcon && variant !== 'loading' && (
-        <span className="btn__icon" aria-hidden>
+        <span className="btn__icon" aria-hidden style={{ color: 'var(--btn-icon-color, inherit)' }}>
           {renderIcon(leadingIcon)}
         </span>
       )}
@@ -171,14 +172,14 @@ export default function Button({
       )}
 
       {trailingIcon && variant !== 'loading' && (
-        <span className="btn__icon btn__icon--end" aria-hidden>
+        <span className="btn__icon btn__icon--end" aria-hidden style={{ color: 'var(--btn-icon-color, inherit)' }}>
           {renderIcon(trailingIcon)}
         </span>
       )}
 
       {/* dropdown caret for dropdown types */}
       {(btnType === 'dropdown' || btnType === 'icon-only-dropdown') && (
-        <span className="btn__caret" aria-hidden>
+        <span className="btn__caret" aria-hidden style={{ color: 'var(--btn-icon-color, inherit)' }}>
           <span className="material-symbols-rounded">{dropdownCaretIcon}</span>
         </span>
       )}

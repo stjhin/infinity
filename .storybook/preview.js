@@ -15,6 +15,16 @@ export const parameters = {
       const titleA = a.title || ''
       const titleB = b.title || ''
 
+      // Put Styles before Components in the sidebar
+      const sectionA = titleA.split('/')[0]
+      const sectionB = titleB.split('/')[0]
+      const ORDER = { 'Styles': 0, 'Tokens': 0, 'Components': 1 }
+      if (sectionA !== sectionB) {
+        const rankA = ORDER[sectionA] ?? 2
+        const rankB = ORDER[sectionB] ?? 2
+        if (rankA !== rankB) return rankA - rankB
+      }
+
       if (titleA !== titleB) {
         return titleA.localeCompare(titleB)
       }

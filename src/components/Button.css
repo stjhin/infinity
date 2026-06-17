@@ -1,6 +1,18 @@
-/* token values are defined in src/index.css :root. This file uses those CSS custom properties
-   so they can be centrally managed. If you need component-specific overrides, set them inline
-   (Button.jsx) or in a higher-level stylesheet. */
+/* Button component tokens — global level, defined on :root.
+   Colour and typography tokens are in src/styles/. */
+
+:root {
+  --btn-height: 32px;
+  --btn-padding-y: 8px;
+  --btn-padding-x: 12px;
+  --btn-radius: 8px;
+  --font-size: 14px;
+  --btn-border: var(--text-black);
+  --btn-bg: var(--bg-white);
+  --btn-text: var(--text-black);
+  --btn-hover-bg: var(--bg-gray200);
+  --btn-active-bg: var(--bg-gray300);
+}
 
 .btn{
   display: inline-flex;

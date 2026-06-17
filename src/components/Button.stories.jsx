@@ -22,6 +22,10 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   parameters: {
+    design: {
+      type: 'figma',
+      url: figmaDocs.figmaUrl,
+    },
     docs: {
       description: {
         component: figmaDocs.componentDescription,
@@ -85,6 +89,12 @@ const meta = {
       labels: { '': 'None' },
     }),
     leadingIcon: slotControl({ control: false }),
+    iconColor: propControl({
+      name: 'Icon colour',
+      description: 'Set icon colour (white, black, grey, blue, brand, green, red, yellow). Default inherits text.',
+      control: { type: 'select' },
+      options: ['', 'white', 'black', 'grey', 'blue', 'brand', 'green', 'red', 'yellow'],
+    }),
     trailingIcon: slotControl({ control: false }),
     onClick: eventControl({ control: false }),
   },
@@ -106,7 +116,7 @@ const mapStyleToProps = (style) => {
 }
 
 const renderButton = (args) => {
-  const { variant, size, btnType, disabled, children, hasLeadingIcon, leadingIconName, hasTrailingIcon, trailingIconName, className } = args
+  const { variant, size, btnType, disabled, children, hasLeadingIcon, leadingIconName, hasTrailingIcon, trailingIconName, className, iconColor } = args
   const styleProps = mapStyleToProps(variant)
 
   const resolvedLeadingIcon = hasLeadingIcon ? ((leadingIconName || '').trim() || 'add') : undefined
@@ -119,6 +129,7 @@ const renderButton = (args) => {
     btnType,
     leadingIcon: resolvedLeadingIcon,
     trailingIcon: resolvedTrailingIcon,
+    iconColor: iconColor || undefined,
     className,
   }
 

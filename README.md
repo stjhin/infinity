@@ -100,8 +100,8 @@ npm run build:pages
 
 2. Commit and push the generated `docs/` folder.
 3. In GitHub repository settings → Pages:
-	- Source: `Deploy from a branch`
-	- Branch: `master`
-	- Folder: `/docs`
+   - Source: `Deploy from a branch`
+   - Branch: `master`
+   - Folder: `/docs`
 
 Using `/root` on `master` will serve your app source `index.html` (which points to `/src/main.jsx`) instead of built Storybook assets, resulting in a blank page.
