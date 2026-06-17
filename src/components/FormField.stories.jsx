@@ -16,10 +16,6 @@ const meta = {
   component: FormField,
   tags: ['autodocs'],
   parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDocs.figmaUrl,
-    },
     docs: {
       description: {
         component: figmaDocs.componentDescription,
@@ -269,4 +265,3 @@ export const TextInput = createVariantStory('Text Input', 'enabled/default', {
   hasRightIcon: true,
   rightIconName: 'search',
 })
-

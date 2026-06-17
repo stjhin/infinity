@@ -14,10 +14,8 @@
 *.html   text eol=lf
 *.md     text eol=lf
 
-# Generated Storybook assets — always LF (produced by Vite/Linux CI)
-docs/assets/**   text eol=lf
-docs/sb-addons/** text eol=lf
-docs/sb-manager/** text eol=lf
+# Generated Storybook assets — treat as binary/text-auto to avoid LF/CRLF churn
+docs/** text=auto
 
 # Binary files
 *.woff2  binary

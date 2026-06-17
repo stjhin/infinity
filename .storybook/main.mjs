@@ -8,7 +8,6 @@ export default {
     '@storybook/addon-docs',
     '@storybook/addon-a11y',
     '@storybook/addon-vitest',
-    '@storybook/addon-designs',
   ],
   features: {
     controls: true,

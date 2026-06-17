@@ -9,10 +9,6 @@ const meta = {
   component: Menu,
   tags: ['autodocs'],
   parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDocs.figmaUrl,
-    },
     docs: {
       description: {
         component: figmaDocs.componentDescription,
