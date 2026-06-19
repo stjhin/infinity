@@ -1,0 +1,24 @@
+/* ── Streaming Text ── */
+
+.ai-streaming-text {
+  /* inherit MessageBubble styles */
+}
+
+.ai-streaming-text__content {
+  /* ensures cursor stays with text */
+}
+
+.ai-streaming-text__cursor {
+  display: inline-block;
+  width: var(--ai-streaming-cursor-width, 2px);
+  height: 1em;
+  background: var(--ai-streaming-cursor-color);
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: ai-streaming-cursor-blink 0.8s step-end infinite;
+}
+
+@keyframes ai-streaming-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

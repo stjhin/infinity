@@ -1,0 +1,89 @@
+/* ── Chat Thread ── */
+
+.ai-thread {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family-base);
+  transition: background 0.15s;
+  border-radius: 8px;
+  color: var(--color-asx-navy-800, #44546f);
+}
+
+.ai-thread:hover {
+  background: var(--ai-cot-bg);
+}
+
+.ai-thread--active {
+  background: var(--color-asx-purple-100, #f3f0ff);
+}
+
+.ai-thread__icon {
+  flex-shrink: 0;
+  font-size: 18px;
+  margin-top: 2px;
+  color: var(--color-asx-mono-500, #738496);
+}
+
+.ai-thread--active .ai-thread__icon {
+  color: var(--color-asx-purple-600, #8270db);
+}
+
+.ai-thread__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ai-thread__title {
+  font-size: var(--font-size-14, 14px);
+  font-weight: var(--font-weight-medium, 500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-thread__preview {
+  font-size: var(--font-size-12, 12px);
+  color: var(--color-asx-mono-500, #738496);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-thread__meta {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.ai-thread__count {
+  font-size: var(--font-size-11, 11px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-asx-mono-500, #738496);
+  background: var(--color-asx-navy-200, #f1f2f4);
+  border-radius: 10px;
+  padding: 1px 6px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.ai-thread--active .ai-thread__count {
+  background: var(--color-asx-purple-200, #dfd8fd);
+  color: var(--color-asx-purple-800, #5e4db2);
+}
+
+.ai-thread__date {
+  font-size: var(--font-size-10, 10px);
+  color: var(--color-asx-mono-400, #8c9bab);
+}

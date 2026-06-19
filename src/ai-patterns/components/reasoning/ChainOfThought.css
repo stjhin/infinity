@@ -1,0 +1,196 @@
+/* ── Chain of Thought ── */
+
+.ai-cot {
+  border: 1px solid var(--ai-cot-border);
+  border-radius: 8px;
+  background: var(--ai-cot-bg);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.ai-cot--active {
+  border-color: var(--ai-cot-active-border);
+}
+
+.ai-cot__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--font-size-13, 13px);
+  color: var(--color-asx-navy-800, #44546f);
+  transition: background 0.15s;
+}
+
+.ai-cot__header:hover {
+  background: color-mix(in srgb, var(--ai-cot-border) 15%, transparent);
+}
+
+.ai-cot__header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-cot__title {
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.ai-cot__chevron {
+  font-size: 20px;
+  color: var(--color-asx-mono-500, #738496);
+}
+
+.ai-cot__header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-cot__confidence-badge {
+  font-size: var(--font-size-11, 11px);
+  font-weight: var(--font-weight-semibold, 600);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.ai-cot__confidence-badge--high {
+  background: color-mix(in srgb, var(--ai-confidence-high, #22a06b) 12%, transparent);
+  color: var(--ai-confidence-high, #22a06b);
+}
+
+.ai-cot__confidence-badge--medium {
+  background: color-mix(in srgb, var(--ai-confidence-medium, #e2b203) 12%, transparent);
+  color: var(--ai-confidence-medium, #e2b203);
+}
+
+.ai-cot__confidence-badge--low {
+  background: color-mix(in srgb, var(--ai-confidence-low, #e2483d) 12%, transparent);
+  color: var(--ai-confidence-low, #e2483d);
+}
+
+.ai-cot__steps {
+  padding: 0 14px 14px;
+}
+
+.ai-cot__step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ai-cot-border) 50%, transparent);
+}
+
+.ai-cot__step:last-child {
+  border-bottom: none;
+}
+
+.ai-cot__step--active {
+  animation: ai-cot-step-enter 0.3s ease-out;
+}
+
+@keyframes ai-cot-step-enter {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.ai-cot__step-indicator {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.ai-cot__step-content {
+  font-size: var(--font-size-13, 13px);
+  line-height: 1.5;
+  color: var(--color-asx-navy-700, #626f86);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Embedded mode: blends into parent message bubble ── */
+
+.ai-cot--embedded {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--ai-cot-border) 50%, transparent);
+}
+
+.ai-cot--embedded .ai-cot__header {
+  padding: 6px 0;
+  font-size: var(--font-size-12, 12px);
+}
+
+.ai-cot--embedded .ai-cot__confidence-badge {
+  font-size: var(--font-size-10, 10px);
+  padding: 1px 6px;
+}
+
+.ai-cot--embedded .ai-cot__steps {
+  padding: 0 0 4px 0;
+}
+
+.ai-cot--embedded .ai-cot__step {
+  padding: 6px 0;
+}
+
+.ai-cot--embedded .ai-cot__step-content {
+  font-size: var(--font-size-12, 12px);
+}
+
+/* ── Inline explainability inside chain of thought ── */
+
+.ai-cot__explainability {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--ai-cot-border) 40%, transparent);
+}
+
+.ai-cot__explainability .ai-explain {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.ai-cot__explainability .ai-explain__header {
+  margin-bottom: 6px;
+  font-size: var(--font-size-12, 12px);
+}
+
+.ai-cot__explainability .ai-explain__header .material-symbols-rounded {
+  font-size: 14px;
+}
+
+.ai-cot__explainability .ai-explain__confidence {
+  margin-bottom: 6px;
+}
+
+.ai-cot__explainability .ai-explain__confidence-bar {
+  height: 6px;
+}
+
+.ai-cot__explainability .ai-explain__confidence-value {
+  font-size: var(--font-size-13, 13px);
+  min-width: 36px;
+}
+
+.ai-cot__explainability .ai-explain__explanation {
+  margin-bottom: 0;
+}
+
+.ai-cot__explainability .ai-explain__text {
+  font-size: var(--font-size-12, 12px);
+}
+
+.ai-cot__explainability .ai-explain__model {
+  margin-top: 6px;
+  padding-top: 6px;
+}

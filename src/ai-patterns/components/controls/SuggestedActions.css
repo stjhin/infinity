@@ -1,0 +1,25 @@
+/* ── Suggested Actions ── */
+
+.ai-suggested {
+  padding: 10px 14px;
+}
+
+.ai-suggested__label {
+  display: block;
+  font-size: var(--font-size-11, 11px);
+  font-weight: var(--font-weight-semibold, 600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-asx-mono-500, #738496);
+  margin-bottom: 8px;
+}
+
+.ai-suggested__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ai-suggested--vertical .ai-suggested__list {
+  flex-direction: column;
+}
