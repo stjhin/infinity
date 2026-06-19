@@ -1,0 +1,106 @@
+/* ── Persona Card ── */
+
+.ai-persona {
+  background: var(--ai-persona-bg);
+  border: 1px solid var(--ai-persona-border);
+  border-radius: var(--ai-chat-radius, 12px);
+  padding: 20px;
+}
+
+.ai-persona__header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.ai-persona__avatar {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ai-persona-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ai-persona__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ai-persona__avatar .material-symbols-rounded {
+  font-size: 28px;
+}
+
+.ai-persona__identity {
+  min-width: 0;
+}
+
+.ai-persona__name {
+  margin: 0 0 4px;
+  font-size: var(--font-size-18, 18px);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-asx-navy-900, #2c3e5d);
+}
+
+.ai-persona__description {
+  margin: 0;
+  font-size: var(--font-size-14, 14px);
+  color: var(--color-asx-mono-600, #38414a);
+  line-height: 1.4;
+}
+
+.ai-persona__capabilities {
+  margin-top: 16px;
+}
+
+.ai-persona__section-title {
+  display: block;
+  font-size: var(--font-size-12, 12px);
+  font-weight: var(--font-weight-semibold, 600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-asx-mono-500, #738496);
+  margin-bottom: 8px;
+}
+
+.ai-persona__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ai-persona__tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--color-asx-purple-100, #f3f0ff);
+  color: var(--color-asx-purple-800, #5e4db2);
+  font-size: var(--font-size-12, 12px);
+  font-weight: var(--font-weight-medium, 500);
+}
+
+.ai-persona__model {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ai-persona-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-persona__model-name {
+  font-size: var(--font-size-14, 14px);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-asx-navy-800, #44546f);
+}
+
+.ai-persona__model-supplier {
+  font-size: var(--font-size-12, 12px);
+  color: var(--color-asx-mono-500, #738496);
+}

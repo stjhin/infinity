@@ -1,0 +1,33 @@
+/* ── Sources Panel ── */
+
+.ai-sources {
+  padding: 10px 14px;
+}
+
+.ai-sources--panel {
+  border: 1px solid var(--ai-source-border);
+  border-radius: 8px;
+  background: var(--ai-source-bg);
+}
+
+.ai-sources__label {
+  display: block;
+  font-size: var(--font-size-11, 11px);
+  font-weight: var(--font-weight-semibold, 600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-asx-mono-500, #738496);
+  margin-bottom: 6px;
+}
+
+.ai-sources__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ai-sources--grouped .ai-sources__list,
+.ai-sources--panel .ai-sources__list {
+  flex-direction: column;
+  gap: 4px;
+}

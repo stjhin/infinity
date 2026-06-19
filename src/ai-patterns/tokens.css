@@ -1,0 +1,65 @@
+/* ============================================================
+   AI Pattern Design Tokens
+   Part of the 3-level token architecture:
+   Global (this file) → Component (per-component CSS)
+   ============================================================ */
+
+:root {
+  /* ── Message bubble backgrounds ── */
+  --ai-bubble-user-bg: var(--color-asx-purple-100, #f3f0ff);
+  --ai-bubble-ai-bg: var(--color-asx-navy-100, #f7f8f9);
+  --ai-bubble-system-bg: var(--color-asx-mono-200, #b6c2cf);
+
+  /* ── Message text colors ── */
+  --ai-bubble-user-text: var(--color-asx-purple-900, #352c63);
+  --ai-bubble-ai-text: var(--color-asx-navy-900, #2c3e5d);
+  --ai-bubble-system-text: var(--color-asx-mono-900, #22272b);
+
+  /* ── Thinking phase indicator colors ── */
+  --ai-thinking-phase-idle: var(--color-asx-mono-500, #738496);
+  --ai-thinking-phase-understanding: var(--color-asx-blue-600, #1d7afc);
+  --ai-thinking-phase-planning: var(--color-asx-purple-600, #8270db);
+  --ai-thinking-phase-executing: var(--color-asx-navy-800, #44546f);
+  --ai-thinking-phase-outputting: var(--color-asx-green-600, #22a06b);
+
+  /* ── Confidence score colors ── */
+  --ai-confidence-high: var(--color-asx-green-600, #22a06b);
+  --ai-confidence-medium: #e2b203;
+  --ai-confidence-low: var(--color-asx-red-600, #e2483d);
+
+  /* ── Streaming text ── */
+  --ai-streaming-cursor-color: var(--color-asx-purple-800, #5e4db2);
+  --ai-streaming-cursor-width: 2px;
+
+  /* ── Chat container ── */
+  --ai-chat-bg: var(--color-asx-navy-0, #ffffff);
+  --ai-chat-border: var(--color-asx-navy-300, #dcdfe4);
+  --ai-chat-max-width: 800px;
+  --ai-chat-radius: 12px;
+
+  /* ── Prompt input ── */
+  --ai-prompt-bg: var(--color-asx-navy-0, #ffffff);
+  --ai-prompt-border: var(--color-asx-navy-300, #dcdfe4);
+  --ai-prompt-focus-border: var(--color-asx-purple-600, #8270db);
+  --ai-prompt-radius: 8px;
+
+  /* ── Voice input ── */
+  --ai-voice-overlay-bg: rgba(0, 0, 0, 0.6);
+  --ai-voice-indicator-color: var(--color-asx-red-600, #e2483d);
+  --ai-voice-wave-color: var(--color-asx-purple-500, #8f7ee7);
+
+  /* ── Sources / citations ── */
+  --ai-source-bg: var(--color-asx-navy-100, #f7f8f9);
+  --ai-source-border: var(--color-asx-navy-300, #dcdfe4);
+  --ai-source-hover-bg: var(--color-asx-navy-200, #f1f2f4);
+
+  /* ── Chain of thought ── */
+  --ai-cot-bg: var(--color-asx-navy-100, #f7f8f9);
+  --ai-cot-border: var(--color-asx-navy-300, #dcdfe4);
+  --ai-cot-active-border: var(--color-asx-purple-500, #8f7ee7);
+
+  /* ── Persona card ── */
+  --ai-persona-bg: var(--color-asx-navy-0, #ffffff);
+  --ai-persona-border: var(--color-asx-navy-300, #dcdfe4);
+  --ai-persona-accent: var(--color-asx-purple-600, #8270db);
+}

@@ -1,0 +1,42 @@
+/* ── Thinking Indicator ── */
+
+.ai-thinking-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--ai-cot-border);
+  background: var(--ai-cot-bg);
+  font-size: var(--font-size-12, 12px);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--ai-thinking-phase-color, var(--ai-thinking-phase-idle));
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.ai-thinking-indicator--active {
+  border-color: var(--ai-thinking-phase-color, var(--ai-cot-active-border));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ai-thinking-phase-color, #8270db) 20%, transparent);
+}
+
+.ai-thinking-indicator__icon {
+  font-size: 16px;
+  font-variation-settings: 'FILL' 0;
+}
+
+.ai-thinking-indicator__label {
+  white-space: nowrap;
+}
+
+.ai-thinking-indicator__pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ai-thinking-phase-color, var(--ai-thinking-phase-idle));
+  animation: ai-thinking-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ai-thinking-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}

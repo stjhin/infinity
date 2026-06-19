@@ -1,6 +1,7 @@
 import '../src/index.css';
-import '../src/styles/colors.css';
-import '../src/styles/typography.css';
+import '../src/styles/colors/colors.css';
+import '../src/styles/typography/typography.css';
+import '../src/ai-patterns/tokens.css';
 // Import runtime token injector so Storybook has the same CSS variables as the app
 import '../src/setupTokens'
 
@@ -20,7 +21,7 @@ export const parameters = {
       // Put Styles before Components in the sidebar
       const sectionA = titleA.split('/')[0]
       const sectionB = titleB.split('/')[0]
-      const ORDER = { 'Styles': 0, 'Tokens': 0, 'Components': 1 }
+      const ORDER = { 'Infinity Design System': -1, 'Styles': 0, 'Tokens': 0, 'Components': 1 }
       if (sectionA !== sectionB) {
         const rankA = ORDER[sectionA] ?? 2
         const rankB = ORDER[sectionB] ?? 2
