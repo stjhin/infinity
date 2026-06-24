@@ -37,7 +37,7 @@ export const Default = {
       { label: 'Create a Button component', icon: 'smart_button', onClick: () => {} },
       { label: 'Explain design tokens', icon: 'palette', onClick: () => {} },
       { label: 'Check accessibility', icon: 'accessibility', onClick: () => {} },
-      { label: 'Review my code', icon: 'code_review', onClick: () => {} },
+      { label: 'Review my code', icon: 'rate_review', onClick: () => {} },
     ],
   },
 }
