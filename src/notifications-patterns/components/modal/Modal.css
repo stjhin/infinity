@@ -1,0 +1,180 @@
+/* Modal component tokens — component level, defined on :root.
+   Geometry lives here; the palette comes from pattern-level tokens
+   in ../../tokens.css. Values synced from Figma
+   "Notification / Modal". */
+
+:root {
+  --modal-width: 400px;
+  --modal-radius: var(--notification-radius-md, 12px);
+  --modal-padding: 24px;
+  --modal-gap: 20px;
+  --modal-shadow: var(--notification-shadow-modal, 0 8px 24px rgba(16, 18, 20, 0.13));
+  --modal-backdrop: var(--notification-backdrop, rgba(16, 18, 20, 0.5));
+  --modal-heading-gap: 12px;
+  --modal-icon-size: 36px;
+  --modal-icon-radius: 18px;
+  --modal-icon-bg: var(--notification-error-icon-bg, #fee2e2);
+  --modal-icon-color: var(--notification-error-icon-fg, #dc2626);
+  --modal-title-font-size: 18px;
+  --modal-title-line-height: 22px;
+  --modal-body-font-size: 14px;
+  --modal-body-line-height: 21px;
+  --modal-close-size: var(--notification-close-size, 24px);
+  --modal-confirm-bg: var(--notification-error-strong, #dc2626);
+  --modal-confirm-hover-bg: var(--notification-error-strong-hover, #b91c1c);
+  --modal-confirm-active-bg: var(--notification-error-strong-active, #991b1b);
+  --modal-confirm-radius: var(--notification-radius-sm, 8px);
+  --modal-confirm-padding-y: 8px;
+  --modal-confirm-padding-x: 16px;
+  --modal-confirm-font-size: 14px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--modal-backdrop);
+}
+
+/* Inline presentation (no fixed backdrop) — mirrors the Figma
+   "Modal Container Preview" surface for docs and specimen sheets. */
+.modal-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: var(--notification-radius-md, 12px);
+  background: var(--notification-surface-muted, #f1f2f4);
+}
+
+.modal {
+  width: var(--modal-width);
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--modal-gap);
+  padding: var(--modal-padding);
+  border-radius: var(--modal-radius);
+  background: var(--notification-surface, #ffffff);
+  box-shadow: var(--modal-shadow);
+  box-sizing: border-box;
+  font-family: var(--font-family-base, var(--font-family-noto-sans, "Noto Sans")), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--modal-heading-gap);
+}
+
+.modal__heading {
+  display: flex;
+  align-items: center;
+  gap: var(--modal-heading-gap);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.modal__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--modal-icon-size);
+  height: var(--modal-icon-size);
+  border-radius: var(--modal-icon-radius);
+  background: var(--modal-icon-bg);
+  color: var(--modal-icon-color);
+}
+
+.modal__icon .material-symbols-rounded {
+  font-size: 20px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: var(--modal-title-font-size);
+  font-weight: 700;
+  line-height: var(--modal-title-line-height);
+  color: var(--notification-text, #22272b);
+}
+
+.modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--modal-close-size);
+  height: var(--modal-close-size);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--notification-text-muted, #626f86);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.modal__close:hover {
+  background: rgba(16, 18, 20, 0.06);
+}
+
+.modal__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 18, 20, 0.16);
+}
+
+.modal__close .material-symbols-rounded {
+  font-size: 20px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.modal__body {
+  font-size: var(--modal-body-font-size);
+  font-weight: 400;
+  line-height: var(--modal-body-line-height);
+  color: var(--notification-text-muted, #626f86);
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal__confirm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--modal-confirm-padding-y) var(--modal-confirm-padding-x);
+  border: none;
+  border-radius: var(--modal-confirm-radius);
+  background: var(--modal-confirm-bg);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: var(--modal-confirm-font-size);
+  font-weight: 600;
+  line-height: 17px;
+  cursor: pointer;
+}
+
+.modal__confirm:hover {
+  background: var(--modal-confirm-hover-bg);
+}
+
+.modal__confirm:active {
+  background: var(--modal-confirm-active-bg);
+}
+
+.modal__confirm:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.24), 0 0 0 1px #ffffff inset;
+}

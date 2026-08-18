@@ -1,0 +1,62 @@
+/* ============================================================
+   Notification Pattern Design Tokens
+   Part of the 3-level token architecture:
+   Pattern (this file) → Component (per-component CSS)
+   Values synced from the Figma
+   "Notification Patterns Specimen Sheet" (node 2114:1631).
+   ============================================================ */
+
+:root {
+  /* ── Neutral surfaces & text ── */
+  --notification-surface: #ffffff;
+  --notification-surface-muted: #f1f2f4;
+  --notification-text: #22272b;
+  --notification-text-muted: #626f86;
+  --notification-backdrop: rgba(16, 18, 20, 0.5);
+
+  /* ── Shadows (Figma effects) ── */
+  --notification-shadow-modal: 0 8px 24px rgba(16, 18, 20, 0.13);
+  --notification-shadow-toast: 0 4px 16px rgba(16, 18, 20, 0.08);
+
+  /* ── Error palette ── */
+  --notification-error-bg: #fdf2f2;
+  --notification-error-border: #fde8e8;
+  --notification-error-accent: #f05252;
+  --notification-error-icon: #f05252;
+  --notification-error-icon-bg: #fee2e2;
+  --notification-error-icon-fg: #dc2626;
+  --notification-error-title: #9b1c1c;
+  --notification-error-body: #c81e1e;
+  --notification-error-strong: #dc2626;
+  --notification-error-strong-hover: #b91c1c;
+  --notification-error-strong-active: #991b1b;
+  --notification-error-item-icon-bg: #fee2e2;
+  --notification-error-item-icon-fg: #991b1b;
+
+  /* ── Warning palette ── */
+  --notification-warning-bg: #fffbeb;
+  --notification-warning-border: #fef3c7;
+  --notification-warning-accent: #d97706;
+  --notification-warning-icon: #d97706;
+  --notification-warning-title: #92400e;
+  --notification-warning-body: #b45309;
+
+  /* ── Success palette ── */
+  --notification-success-icon-bg: #def7ec;
+  --notification-success-icon-fg: #03543f;
+
+  /* ── Attention, unread & counts ── */
+  --notification-attention: #ef4444;
+  --notification-unread-bg: #f5f3ff;
+  --notification-avatar-bg: #c4b5fd;
+  --notification-avatar-text: #4c1d95;
+  /* Figma omitted the fill for the "N New" header badge and the unread dot;
+     these are palette-consistent inferences. */
+  --notification-count-badge-bg: #6e5dc6;
+
+  /* ── Geometry ── */
+  --notification-radius-sm: 8px;
+  --notification-radius-md: 12px;
+  --notification-radius-pill: 10px;
+  --notification-close-size: 24px;
+}

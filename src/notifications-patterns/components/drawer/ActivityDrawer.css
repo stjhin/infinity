@@ -1,0 +1,259 @@
+/* ActivityDrawer component tokens — component level, defined on :root.
+   Geometry lives here; the palette comes from pattern-level tokens
+   in ../../tokens.css. Values synced from Figma
+   "Notification / Drawer". */
+
+:root {
+  --drawer-width: 380px;
+  --drawer-height: 520px;
+  --drawer-radius: var(--notification-radius-md, 12px);
+  --drawer-header-padding: 16px;
+  --drawer-heading-gap: 8px;
+  --drawer-title-font-size: 16px;
+  --drawer-title-line-height: 19px;
+  --drawer-badge-bg: var(--notification-count-badge-bg, #6e5dc6);
+  --drawer-badge-radius: var(--notification-radius-pill, 10px);
+  --drawer-badge-padding-y: 2px;
+  --drawer-badge-padding-x: 8px;
+  --drawer-badge-font-size: 11px;
+  --drawer-markall-font-size: 12px;
+  --drawer-close-size: var(--notification-close-size, 24px);
+  --drawer-item-padding: 16px;
+  --drawer-item-gap: 12px;
+  --drawer-item-min-height: 82px;
+  --drawer-item-bg-unread: var(--notification-unread-bg, #f5f3ff);
+  --drawer-item-icon-size: 36px;
+  --drawer-item-icon-radius: 18px;
+  --drawer-item-title-font-size: 13px;
+  --drawer-item-title-line-height: 16px;
+  --drawer-item-time-font-size: 11px;
+  --drawer-item-body-font-size: 12px;
+  --drawer-item-body-line-height: 15px;
+  --drawer-item-content-gap: 4px;
+  --drawer-dot-size: 8px;
+  --drawer-dot-color: var(--notification-attention, #ef4444);
+}
+
+.activity-drawer {
+  display: flex;
+  flex-direction: column;
+  width: var(--drawer-width);
+  max-width: 100%;
+  height: var(--drawer-height);
+  max-height: calc(100vh - 32px);
+  border-radius: var(--drawer-radius);
+  background: var(--notification-surface, #ffffff);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: var(--font-family-base, var(--font-family-noto-sans, "Noto Sans")), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.activity-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--drawer-heading-gap);
+  padding: var(--drawer-header-padding);
+  box-sizing: border-box;
+}
+
+.activity-drawer__heading {
+  display: flex;
+  align-items: center;
+  gap: var(--drawer-heading-gap);
+}
+
+.activity-drawer__title {
+  font-size: var(--drawer-title-font-size);
+  font-weight: 700;
+  line-height: var(--drawer-title-line-height);
+  color: var(--notification-text, #22272b);
+}
+
+.activity-drawer__badge {
+  padding: var(--drawer-badge-padding-y) var(--drawer-badge-padding-x);
+  border-radius: var(--drawer-badge-radius);
+  background: var(--drawer-badge-bg);
+  color: #ffffff;
+  font-size: var(--drawer-badge-font-size);
+  font-weight: 700;
+  line-height: 13px;
+  white-space: nowrap;
+}
+
+.activity-drawer__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.activity-drawer__markall {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #000000;
+  font-family: inherit;
+  font-size: var(--drawer-markall-font-size);
+  font-weight: 600;
+  line-height: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.activity-drawer__markall:hover {
+  text-decoration: underline;
+}
+
+.activity-drawer__markall:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 18, 20, 0.16);
+  border-radius: 4px;
+}
+
+.activity-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--drawer-close-size);
+  height: var(--drawer-close-size);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--notification-text-muted, #626f86);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.activity-drawer__close:hover {
+  background: rgba(16, 18, 20, 0.06);
+}
+
+.activity-drawer__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 18, 20, 0.16);
+}
+
+.activity-drawer__close .material-symbols-rounded {
+  font-size: 20px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.activity-drawer__list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.activity-drawer__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--drawer-item-gap);
+  min-height: var(--drawer-item-min-height);
+  padding: var(--drawer-item-padding);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.activity-drawer__item--unread {
+  background: var(--drawer-item-bg-unread);
+}
+
+.activity-drawer__item:hover {
+  background: #f7f8f9;
+}
+
+.activity-drawer__item--unread:hover {
+  background: #eeebff;
+}
+
+.activity-drawer__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--drawer-item-icon-size);
+  height: var(--drawer-item-icon-size);
+  border-radius: var(--drawer-item-icon-radius);
+  overflow: hidden;
+}
+
+.activity-drawer__item-icon .material-symbols-rounded {
+  font-size: 16px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.activity-drawer__item-avatar {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.activity-drawer__item-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--drawer-item-content-gap);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.activity-drawer__item-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.activity-drawer__item-title {
+  font-size: var(--drawer-item-title-font-size);
+  font-weight: 700;
+  line-height: var(--drawer-item-title-line-height);
+  color: var(--notification-text, #22272b);
+}
+
+/* Read items use the muted title treatment from Figma. */
+.activity-drawer__item:not(.activity-drawer__item--unread) .activity-drawer__item-title {
+  font-weight: 600;
+  color: var(--notification-text-muted, #626f86);
+}
+
+.activity-drawer__item-time {
+  flex: 0 0 auto;
+  font-size: var(--drawer-item-time-font-size);
+  font-weight: 400;
+  line-height: 13px;
+  color: var(--notification-text-muted, #626f86);
+  white-space: nowrap;
+}
+
+.activity-drawer__item-body {
+  font-size: var(--drawer-item-body-font-size);
+  font-weight: 400;
+  line-height: var(--drawer-item-body-line-height);
+  color: var(--notification-text-muted, #626f86);
+}
+
+.activity-drawer__item-dot {
+  flex: 0 0 auto;
+  width: var(--drawer-dot-size);
+  height: var(--drawer-dot-size);
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--drawer-dot-color);
+}
+
+/* Responsive: on narrow screens the drawer fills the available width and
+   keeps the header row intact by tightening horizontal gaps. */
+@media (max-width: 400px) {
+  .activity-drawer {
+    height: auto;
+    max-height: calc(100vh - 32px);
+  }
+
+  .activity-drawer__header {
+    gap: 4px;
+  }
+}

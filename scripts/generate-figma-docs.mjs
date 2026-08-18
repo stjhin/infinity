@@ -354,10 +354,12 @@ function getFallbackTargetFromEnv() {
   ])
 
   const outMetaPath = defaults.outMetaPath
+  // Only use an env-provided component name here. Per-target inference from
+  // outMetaPath happens in normalizeTargets; falling back to the default
+  // outMetaPath here would make every config target inherit "Button".
   const componentName = pickFirstNonEmpty(
     process.env.FIGMA_COMPONENT_NAME,
-    process.env.FIGMACOMPONENTNAME,
-    inferComponentNameFromOutMetaPath(outMetaPath)
+    process.env.FIGMACOMPONENTNAME
   )
 
   return {
@@ -371,10 +373,10 @@ function getFallbackTargetFromEnv() {
     componentNameSource: process.env.FIGMA_COMPONENT_NAME
       ? 'env:FIGMA_COMPONENT_NAME'
       : process.env.FIGMACOMPONENTNAME
-      ? 'env:FIGMACOMPONENTNAME'
-      : componentName
-      ? 'inferred:outMetaPath'
-      : 'missing',
+        ? 'env:FIGMACOMPONENTNAME'
+        : componentName
+          ? 'inferred:outMetaPath'
+          : 'missing',
     outMetaPath,
   }
 }

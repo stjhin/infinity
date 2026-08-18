@@ -5,6 +5,7 @@ import './index.css'
 import './styles/colors/colors.css'
 import './styles/typography/typography.css'
 import './ai-patterns/tokens.css'
+import './notifications-patterns/tokens.css'
 import applyTokens from './setupTokens'
 
 // ensure tokens are applied at app startup

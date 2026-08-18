@@ -1,0 +1,125 @@
+/* Toast component tokens — component level, defined on :root.
+   Geometry lives here; the palette comes from pattern-level tokens
+   in ../../tokens.css. Values synced from Figma
+   "Notification / Toast". */
+
+:root {
+  --toast-radius: var(--notification-radius-md, 12px);
+  --toast-padding: 16px;
+  --toast-gap: 12px;
+  --toast-content-gap: 2px;
+  --toast-title-font-size: 14px;
+  --toast-title-line-height: 17px;
+  --toast-body-font-size: 12px;
+  --toast-body-line-height: 15px;
+  --toast-icon-size: 24px;
+  --toast-icon-radius: 12px;
+  --toast-icon-bg: var(--notification-success-icon-bg, #def7ec);
+  --toast-icon-color: var(--notification-success-icon-fg, #03543f);
+  --toast-close-size: var(--notification-close-size, 24px);
+  --toast-shadow: var(--notification-shadow-toast, 0 4px 16px rgba(16, 18, 20, 0.08));
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--toast-gap);
+  width: fit-content;
+  max-width: min(480px, calc(100vw - 32px));
+  padding: var(--toast-padding);
+  border-radius: var(--toast-radius);
+  background: var(--notification-surface, #ffffff);
+  box-shadow: var(--toast-shadow);
+  box-sizing: border-box;
+  font-family: var(--font-family-base, var(--font-family-noto-sans, "Noto Sans")), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.toast__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--toast-icon-size);
+  height: var(--toast-icon-size);
+  border-radius: var(--toast-icon-radius);
+  background: var(--toast-icon-bg);
+  color: var(--toast-icon-color);
+}
+
+.toast__icon .material-symbols-rounded {
+  font-size: 16px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+/* Optional loading spinner (off by default to stay faithful to the Figma loading variant). */
+.toast__icon--spinner {
+  background: var(--notification-surface-muted, #f1f2f4);
+  color: var(--notification-text-muted, #626f86);
+}
+
+.toast__spinner-glyph {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  box-sizing: border-box;
+  animation: toast-spinner-rotate 0.75s linear infinite;
+}
+
+@keyframes toast-spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.toast__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--toast-content-gap);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.toast__title {
+  font-size: var(--toast-title-font-size);
+  font-weight: 700;
+  line-height: var(--toast-title-line-height);
+  color: var(--notification-text, #22272b);
+}
+
+.toast__body {
+  font-size: var(--toast-body-font-size);
+  font-weight: 400;
+  line-height: var(--toast-body-line-height);
+  color: var(--notification-text-muted, #626f86);
+}
+
+.toast__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--toast-close-size);
+  height: var(--toast-close-size);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--notification-text-muted, #626f86);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.toast__close:hover {
+  background: rgba(16, 18, 20, 0.06);
+}
+
+.toast__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 18, 20, 0.16);
+}
+
+.toast__close .material-symbols-rounded {
+  font-size: 20px;
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}

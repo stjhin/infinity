@@ -12,6 +12,16 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  optimizeDeps: {
+    include: [
+      // Storybook 10.5.x's vitest setup pulls @testing-library/dom into the
+      // browser. Prebundling it (and pretty-format) with esbuild converts
+      // its CJS-only deps (aria-query, lz-string) to proper ESM; Vite's
+      // on-the-fly CJS interop fails on their export patterns.
+      '@testing-library/dom',
+      'pretty-format',
+    ],
+  },
   test: {
     projects: [
       {

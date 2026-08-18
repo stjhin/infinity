@@ -1,8 +1,39 @@
 {
-  "targets": [],
+  "targets": [
+    {
+      "fileKey": "asvaeYj4SwE9iBsdlehuzf",
+      "nodeId": "2114:1809",
+      "componentName": "Modal",
+      "outMetaPath": "src/notifications-patterns/components/modal/Modal.figma.generated.js"
+    },
+    {
+      "fileKey": "asvaeYj4SwE9iBsdlehuzf",
+      "nodeId": "2114:1812",
+      "componentName": "AlertBanner",
+      "outMetaPath": "src/notifications-patterns/components/banner/AlertBanner.figma.generated.js"
+    },
+    {
+      "fileKey": "asvaeYj4SwE9iBsdlehuzf",
+      "nodeId": "2114:1815",
+      "componentName": "Toast",
+      "outMetaPath": "src/notifications-patterns/components/toast/Toast.figma.generated.js"
+    },
+    {
+      "fileKey": "asvaeYj4SwE9iBsdlehuzf",
+      "nodeId": "2114:1816",
+      "componentName": "ActivityDrawer",
+      "outMetaPath": "src/notifications-patterns/components/drawer/ActivityDrawer.figma.generated.js"
+    },
+    {
+      "fileKey": "asvaeYj4SwE9iBsdlehuzf",
+      "nodeId": "2114:1820",
+      "componentName": "Badge",
+      "outMetaPath": "src/notifications-patterns/components/badge/Badge.figma.generated.js"
+    }
+  ],
   "exampleTarget": {
     "fileKey": "YOUR_FIGMA_FILE_KEY",
     "nodeId": "234:567",
-    "outMetaPath": "src/components/Badge.figma.generated.js"
+    "outMetaPath": "src/notifications-patterns/components/badge/Badge.figma.generated.js"
   }
 }
