@@ -1,0 +1,189 @@
+/* Card component tokens — global level, defined on :root.
+   Colour and typography tokens are in src/styles/. */
+
+:root {
+  --card-bg: var(--color-navy-0, #ffffff);
+  --card-border: var(--color-mono-200, #b6c2cf);
+  --card-radius: 16px;
+  --card-padding: 16px;
+  --card-text-gap: 8px;
+  --card-header-gap: 4px;
+
+  --card-title-color: var(--color-mono-1200, #101214);
+  --card-subtitle-color: var(--color-mono-1200, #101214);
+  --card-body-color: var(--color-mono-600, #38414a);
+  --card-footer-color: var(--color-mono-500, #738496);
+  --card-link-color: var(--color-purple-800, #5e4db2);
+  --card-image-placeholder-bg: var(--color-mono-100, #c7d1db);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  font-family: var(--font-family-base, var(--font-family-noto-sans, "Noto Sans")), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ── Orientation: landscape puts image and text side by side ── */
+.card--landscape {
+  flex-direction: row;
+}
+
+/* ── Text + CTA column (Figma Group 1 / Frame 1) ── */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card--landscape .card__body {
+  flex: 0 1 auto;
+}
+
+/* ── Image slot (Figma: 240x180 portrait, 240x280 landscape) ── */
+.card__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.card--portrait .card__image {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+.card--landscape .card__image {
+  flex: 0 0 240px;
+  align-self: stretch;
+}
+
+.card__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--card-image-placeholder-bg);
+  color: var(--color-mono-500, #738496);
+  font-size: 48px;
+}
+
+/* ── Text slot (Figma: padding 16, gap 8) ── */
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-text-gap);
+  padding: var(--card-padding);
+  /* Figma text column widths: 240 card - 32 padding = 208 */
+  max-width: 208px;
+}
+
+/* Figma no-image variants use a wider text column: 328 card - 32 padding = 296 */
+.card--no-image .card__text,
+.card--no-image-link .card__text {
+  max-width: 296px;
+}
+
+/* ── Header group (Figma: Frame 2, gap 4) ── */
+.card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-header-gap);
+}
+
+.card__subtitle {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.36;
+  color: var(--card-subtitle-color);
+}
+
+.card__title {
+  margin: 0;
+  font-family: var(--font-family-rubik, "Rubik"), var(--font-family-base, "Noto Sans"), system-ui, sans-serif;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.19;
+  color: var(--card-title-color);
+}
+
+.card__body {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.36;
+  color: var(--card-body-color);
+}
+
+/* Footer subtitle — present in Figma "No Image" / "No Image Link" types */
+.card__footer {
+  margin: 0;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.36;
+  color: var(--card-footer-color);
+}
+
+/* ── Alignment: center (Figma variant) ── */
+.card--center .card__text {
+  text-align: center;
+}
+
+/* Figma Center variants set counterAxisAlignItems=CENTER on the actions frame */
+.card--center .card__actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Actions slot (Figma: padding 16) ── */
+.card__actions {
+  padding: var(--card-padding);
+}
+
+/* Button CTA — matches Figma "Button / Rounded / Medium": 43px tall,
+   radius 8, 12px padding, 8px gap, Rubik 16 label */
+.card__actions .btn {
+  min-height: 43px;
+  max-height: 43px;
+  padding: 12px;
+  gap: 8px;
+  font-size: 16px;
+  font-family: var(--font-family-rubik, "Rubik"), var(--font-family-base, "Noto Sans"), system-ui, sans-serif;
+}
+
+/* Link CTA — matches Figma "Link" with CTA/Large label (Rubik 18) */
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-rubik, "Rubik"), var(--font-family-base, "Noto Sans"), system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.19;
+  color: var(--card-link-color);
+  text-decoration: none;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+}
+
+.card__link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(130, 112, 219, 0.24);
+  border-radius: 4px;
+}
